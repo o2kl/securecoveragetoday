@@ -26,40 +26,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet"> -->
 <!--   <link rel="stylesheet" href="./css/styles.css"> -->
 <script type="text/javascript" src="../js/data.js"></script>
-<script>
-  console.log(window.location.pathname);
-  function getStateData(variable)
-  {
-    var statePhone, stateLink, stateImage;
-      //    var query = window.location.search.substring(0);
-         var query = variable.substring(0);
-         var vars = query.split("&");
-         var fromLocation ='Direct Default';
-         for (var i=0;i<vars.length;i++) {
-                 var pair = vars[i].split("=");
-                 //console.log(pair)
-                // if(pair[0] == variable){
-                /// console.log(pair[1])
-                   
-                     if (pair[1] == 'healthcare%20portal') {
-                         fromLocation = 'Healthcare Portal Ad Identifier: HCP1019';
-                     } else if (pair[1] == 'google') {
-                         fromLocation = "SEM Identifier: SEM1019"
-                     } else if (pair[1] == 'bing') {
-                         fromLocation = 'SEM Identifier: SEM1019'
-                     }
-                     else {
-                         fromLocation = 'Direct Default'
-                     }
-                     return fromLocation;
-  
-                  //    return pair[1];
-                //  }
-         }
-  
-         return(false);
-  }
-</script>
+
 
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="shortcut icon" href=""> 

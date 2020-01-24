@@ -1,7 +1,4 @@
-    console.log('local');
 
-    
-    console.log(myData);
 
 
      //Get modal element
