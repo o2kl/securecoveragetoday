@@ -109,7 +109,7 @@
       }
       if (!$('#c1').prop('checked')) {
         errorFormUnsuccessful();
-          openModal(null, txt = "You must agree to the Calling Agreement before submitting.");
+          openModal(null, txt = "You must agree to the Calling Agreement before submitting.");  
           // alert('You must agree to the terms first.');
           return;
       }
@@ -144,21 +144,21 @@
       $.ajax({
           type: "POST",
           url: "https://84q9n2o772.execute-api.us-east-1.amazonaws.com/prod/mailme-securecoverageresource",
-          dataType: "json",
+          dataType: 'jsonp',
           crossDomain: "true",
           contentType: "application/json; charset=utf-8",
           data: JSON.stringify(data),
           success: function() {
               //datalayer for validation on successful
               dataLayer.push({
-                  'eventLabel': 'Form Submission_Successful'
+                  'eventLabel': 'Form Submission_Successful'  
               });
               // clear form and show a success message
               //alert("Successful");
               console.log('form submission successful');
               document.getElementById("contact-form").reset();
               $('#btn-submit').addClass('successful');
-              window.open('../thank_you.html', '_blank');
+              window.open('https://www.securecoveragetoday.com/thank_you.html', '_blank');
               // location.reload();
           },
           error: function() {
