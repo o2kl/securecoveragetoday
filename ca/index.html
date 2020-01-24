@@ -77,7 +77,6 @@
         errorFormUnsuccessful();
           openModal(null, txt = "Please enter your email id");
           //alert("Please enter your email id");
-          
           return;
       }
       var reeamil = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
@@ -85,7 +84,6 @@
           //  alert ("Please enter valid email address");
           errorFormUnsuccessful();
           openModal(null, txt = "Please enter valid email address");
-          
           return;
       }
       var Addressre = /[A-Za-z]{1}[A-Za-z]/;
@@ -112,7 +110,6 @@
       if (!$('#c1').prop('checked')) {
         errorFormUnsuccessful();
           openModal(null, txt = "You must agree to the Calling Agreement before submitting.");
-          
           // alert('You must agree to the terms first.');
           return;
       }
@@ -161,7 +158,7 @@
               console.log('form submission successful');
               document.getElementById("contact-form").reset();
               $('#btn-submit').addClass('successful');
-              window.open('https://s3.us-east-2.amazonaws.com/securecoveragetoday.com/thank_you.html', '_blank');
+              window.open('../thank_you.html', '_blank');
               // location.reload();
           },
           error: function() {
