@@ -127,6 +127,7 @@
 
       var utm_source = locationVar;
       var utm_medium = mediumVar;
+      var vqm: "vq_RET_IHC_CA_Marketing";
 
       var data = {
           name: name,
@@ -138,7 +139,8 @@
           state: state,
           zip: zip,
           utm_source: utm_source,
-          utm_medium: utm_medium
+          utm_medium: utm_medium,
+          vq: vqm
       };
       $.ajax({
         type: "POST",
