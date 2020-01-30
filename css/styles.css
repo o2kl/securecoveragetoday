@@ -1,3 +1,26 @@
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.card-hos {
+  width: 440px;
+  margin: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
 /* apply a natural box layout model to all elements, but allowing components to change */
 
 /* blue = #005cb9;
@@ -214,11 +237,12 @@ padding-bottom: 1rem;
   display:inline-block;
   color:#646464;
   text-align: right;
-  justify-self: flex-end;
+/*  justify-self: flex-end;
   grid-column:3;
- -ms-grid-column:3;
+ -ms-grid-column:3;*/
   padding:0.5rem;
   line-height: 1.5rem;
+  margin: 0px 0px 0px 140px;
 }
 
 #phone-holder p {
