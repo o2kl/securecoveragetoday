@@ -198,7 +198,7 @@ h1 {
 }
 
 h4.card-title-blue {
-  margin:1rem;
+  margin: 16px 16px 0px 16px;
 }
 
 .card-content {
@@ -464,7 +464,6 @@ input[type="checkbox"] {
   font-size: 0.8rem;
 }
 
-
 .buttton {
   background:coral;
   padding:1rem 2rem;
@@ -472,11 +471,9 @@ input[type="checkbox"] {
   border:0;
 }
 
-
 .buttton:hover {
   background:#333;
 }
-
 
 /* MODAL */
 .modal {
