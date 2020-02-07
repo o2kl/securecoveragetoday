@@ -181,7 +181,11 @@
             console.log('form submission successful');
             document.getElementById('contact-form').reset();
             $('#btn-submit').addClass('successful');
-
+            $('#btn-submit').one('submit', function() {
+              $(this)
+                .find('input[type="submit"]')
+                .attr('disabled', 'disabled');
+            });
             window.open(
               'https://www.securecoveragetoday.com/thank_you.html',
               '_blank'
@@ -194,7 +198,11 @@
             //     'eventLabel': 'Form Submission_Unsuccessful'
             // });
             $('#btn-submit').addClass('un-successful');
-
+            $('#btn-submit').one('submit', function() {
+              $(this)
+                .find('input[type="submit"]')
+                .attr('enabled', 'enabled');
+            });
             // show an error message
             console.log('form submission unsuccessful');
             // alert("UnSuccessfull");
