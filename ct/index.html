@@ -56,8 +56,9 @@
         // console.log('trying to submit');
         e.preventDefault();
         // var URL = "https://0un7f2ome1.execute-api.us-west-2.amazonaws.com/02";
+        //var URL = "https://lyzbohwh13.execute-api.us-west-2.amazonaws.com/mailToFormStage/formtomailresource";
         var URL =
-          'https://lyzbohwh13.execute-api.us-west-2.amazonaws.com/mailToFormStage/formtomailresource';
+          'https://84q9n2o772.execute-api.us-east-1.amazonaws.com/prod/mailme-securecoverageresource';
         // console.log($('#c1').prop('checked'));
         var Namere = /[A-Za-z]{1}[A-Za-z]/;
         if (!Namere.test($('#name-input').val())) {
@@ -84,13 +85,13 @@
           openModal(null, (txt = 'Please enter valid number'));
           errorFormUnsuccessful();
           //  alert ("Please enter valid number");
+
           return;
         }
         if ($('#email-input').val() == '') {
           errorFormUnsuccessful();
           openModal(null, (txt = 'Please enter your email id'));
           //alert("Please enter your email id");
-
           return;
         }
         var reeamil = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
@@ -98,14 +99,12 @@
           //  alert ("Please enter valid email address");
           errorFormUnsuccessful();
           openModal(null, (txt = 'Please enter valid email address'));
-
           return;
         }
         var Addressre = /[A-Za-z]{1}[A-Za-z]/;
         if (!Addressre.test($('#addres-1-input').val())) {
           errorFormUnsuccessful();
           openModal(null, (txt = 'Address cannot be less than 2 characters.'));
-
           // alert ("Address can not be less than 2 char");
           return;
         }
@@ -113,16 +112,13 @@
         if (!Cityre.test($('#city-input').val())) {
           errorFormUnsuccessful();
           openModal(null, (txt = 'City cannot be less than 2 characters.'));
-
           // alert ("City can not be less than 2 char");
           return;
         }
-
         var Zipre = /[0-9]{5}/;
         if (!Zipre.test($('#zip-input').val())) {
           errorFormUnsuccessful();
           openModal(null, (txt = 'Please enter valid zip code 5 digit number'));
-
           //  alert ("Please enter valid zip code 5 digit number");
           return;
         }
@@ -132,11 +128,13 @@
             null,
             (txt = 'You must agree to the Calling Agreement before submitting.')
           );
-
           // alert('You must agree to the terms first.');
           return;
         }
-
+        //  if(!$("#c1").val() == checked ){
+        //      alert('You must agree to the terms first.');
+        //      return;
+        //   }
         var name = $('#name-input').val();
         var lastName = $('#last-name-input').val();
         var phone = $('#phone-input').val();
@@ -291,9 +289,7 @@
             If you’re diagnosed with a serious disease, Critical Illness insurance can provide cash benefits to help prevent financial hardship from unexpected medical bills including experimental treatments and out-of-network expenses.
           </p>
         </div>
-        <a class="btn btn-card" href="#form-holder" id="btn-critical"
-          >Start the conversation</a
-        >
+        <a class="btn btn-card" href="#form-holder" id="btn-critical">Start the conversation</a>
       </div>
       <div class="card card-grid" id="card-2">
         <div class="card-content">
@@ -329,9 +325,7 @@
           <p style="padding: 0px 0px 25px 0px;">from LifeSecure Insurance Company</p>
           <hr style="width: 122.8px;">
           <p>
-            Going to the hospital or getting surgery can be expensive. Hospital
-            Recovery insurance bridges the gap in coverage with cash benefits to
-            help protect you financially after a hospital stay.
+            Going to the hospital or getting surgery can be expensive. Hospital Recovery insurance bridges the gap in coverage with cash benefits to help protect you financially after a hospital stay.
           </p>
         </div>
         <a class="btn btn-card" href="#form-holder" id="btn-hospitalrecovery">Start the conversation</a>  
