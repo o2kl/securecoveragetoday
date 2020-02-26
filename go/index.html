@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-N5V228');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- UPDATED GTAG IS BELOW -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-154449353-4"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-154449353-4');
+    </script>
+    <!-- END UPDATED ADDITOINAL GTAG -->
+    <title>Affordable Coverage - CA</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap"
+      rel="stylesheet"
+    />
+    <!--   <link rel="stylesheet" href="./css/styles.css"> -->
+
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="shortcut icon" href="" />
+
+    <script>
+      var locationURL = window.location.href;
+
+      function errorFormUnsuccessful() {
+        dataLayer.push({
+          eventLabel: 'Form Submission_Unsuccessful'
+        });
+      }
+
+      function submitToAPI(e) {
+        $('#btn-submit').removeClass('un-sucessful sucessful');
+        // console.log('trying to submit');
+        e.preventDefault();
+        // var URL = "https://0un7f2ome1.execute-api.us-west-2.amazonaws.com/02";
+        //var URL = "https://lyzbohwh13.execute-api.us-west-2.amazonaws.com/mailToFormStage/formtomailresource";
+        var URL =
+          'https://84q9n2o772.execute-api.us-east-1.amazonaws.com/prod/mailme-securecoverageresource';
+        // console.log($('#c1').prop('checked'));
+        var Namere = /[A-Za-z]{1}[A-Za-z]/;
+        if (!Namere.test($('#name-input').val())) {
+          // $(".popup, .popup-content").addClass("active");
+          // alert ("Name can not less than 2 char");
+          errorFormUnsuccessful();
+          openModal(null, (txt = 'Name cannot be less than 2 characters.'));
+
+          return;
+        }
+        var LastNamere = /[A-Za-z]{1}[A-Za-z]/;
+        if (!LastNamere.test($('#last-name-input').val())) {
+          // alert ("Last Name can not be less than 2 char");
+          errorFormUnsuccessful();
+          openModal(
+            null,
+            (txt = 'Last Name cannot be less than 2 characters.')
+          );
+
+          return;
+        }
+        var mobilere = /((\(\d{3}\)?)|(\d{3}))([\s-./]?)(\d{3})([\s-./]?)(\d{4})/;
+        if (!mobilere.test($('#phone-input').val())) {
+          openModal(null, (txt = 'Please enter valid number'));
+          errorFormUnsuccessful();
+          //  alert ("Please enter valid number");
+
+          return;
+        }
+        if ($('#email-input').val() == '') {
+          errorFormUnsuccessful();
+          openModal(null, (txt = 'Please enter your email id'));
+          //alert("Please enter your email id");
+          return;
+        }
+        var reeamil = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
+        if (!reeamil.test($('#email-input').val())) {
+          //  alert ("Please enter valid email address");
+          errorFormUnsuccessful();
+          openModal(null, (txt = 'Please enter valid email address'));
+          return;
+        }
+        var Addressre = /[A-Za-z]{1}[A-Za-z]/;
+        if (!Addressre.test($('#addres-1-input').val())) {
+          errorFormUnsuccessful();
+          openModal(null, (txt = 'Address cannot be less than 2 characters.'));
+          // alert ("Address can not be less than 2 char");
+          return;
+        }
+        var Cityre = /[A-Za-z]{1}[A-Za-z]/;
+        if (!Cityre.test($('#city-input').val())) {
+          errorFormUnsuccessful();
+          openModal(null, (txt = 'City cannot be less than 2 characters.'));
+          // alert ("City can not be less than 2 char");
+          return;
+        }
+        var Zipre = /[0-9]{5}/;
+        if (!Zipre.test($('#zip-input').val())) {
+          errorFormUnsuccessful();
+          openModal(null, (txt = 'Please enter valid zip code 5 digit number'));
+          //  alert ("Please enter valid zip code 5 digit number");
+          return;
+        }
+        if (!$('#c1').prop('checked')) {
+          errorFormUnsuccessful();
+          openModal(
+            null,
+            (txt = 'You must agree to the Calling Agreement before submitting.')
+          );
+          // alert('You must agree to the terms first.');
+          return;
+        }
+        //  if(!$("#c1").val() == checked ){
+        //      alert('You must agree to the terms first.');
+        //      return;
+        //   }
+        var name = $('#name-input').val();
+        var lastName = $('#last-name-input').val();
+        var phone = $('#phone-input').val();
+        var email = $('#email-input').val();
+        var address = $('#address-1-input').val();
+        var city = $('#city-input').val();
+        var state = $('#state-select').val();
+        var zip = $('#zip-input').val();
+
+        var utm_source = locationVar;
+        var utm_medium = mediumVar;
+        var vqm = 'vq_RET_IHC_GO_Marketing';
+
+        var data = {
+          name: name,
+          lastName: lastName,
+          phone: phone,
+          email: email,
+          address: address,
+          city: city,
+          state: state,
+          zip: zip,
+          utm_source: utm_source,
+          utm_medium: utm_medium,
+          vq: vqm
+        };
+        $.ajax({
+          type: 'POST',
+          url:
+            'https://84q9n2o772.execute-api.us-east-1.amazonaws.com/prod/mailme-securecoverageresource',
+          dataType: 'json',
+          crossDomain: 'true',
+          contentType: 'application/json; charset=utf-8',
+          data: JSON.stringify(data),
+          success: function() {
+            //datalayer for validation on successful
+            dataLayer.push({
+              eventLabel: 'Form Submission_Successful'
+            });
+            // clear form and show a success message
+            //alert("Successful");
+            console.log('form submission successful');
+            document.getElementById('contact-form').reset();
+            $('#btn-submit').addClass('successful');
+            $('#btn-submit').one('submit', function() {
+              $(this)
+                .find('input[type="submit"]')
+                .attr('disabled', 'disabled');
+            });
+            window.open(
+              'https://www.securecoveragetoday.com/thank_you.html',
+              '_blank'
+            );
+            // location.reload();
+          },
+          error: function() {
+            //datalayer for validation on error
+            // dataLayer.push({
+            //     'eventLabel': 'Form Submission_Unsuccessful'
+            // });
+            $('#btn-submit').addClass('un-successful');
+            $('#btn-submit').one('submit', function() {
+              $(this)
+                .find('input[type="submit"]')
+                .attr('enabled', 'enabled');
+            });
+            // show an error message
+            console.log('form submission unsuccessful');
+            // alert("UnSuccessfull");
+          }
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-N5V228"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- MODAL POP UP BEGIN -->
+    <div class="modal" id="simpleModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="closeBtn">&times;</span>
+          <h2>Please complete all required fields</h2>
+        </div>
+        <div class="modal-body">
+          <p id="modalBodyCopy">Some content</p>
+        </div>
+      </div>
+    </div>
+    <!-- MODAL POP UP END -->
+    <!-- HEADER BEGIN -->
+    <div class="row">
+      <div class="column">
+        <div class="logo">
+          <a class="logo-header-link" href="#" target="_blank"><img alt="" class="logo-header-img" style="width: 230px" src="https://s3.us-east-2.amazonaws.com/securecoveragetoday.com/imgs/lifesecure.png"/></a>
+        </div>  
+      </div>
+      <div class="column">
+        <div class="logo">
+          <a class="logo-header-link" href="#" target="_blank" ><img alt="" class="logo-header-img" style="width: 230px" src="https://s3.us-east-2.amazonaws.com/securecoveragetoday.com/imgs/anthem-blue-cross.png"/></a>
+        </div>   
+      </div>
+      <div class="column">
+        <div id="phone-holder">
+          <p>Call to start a conversation today:</p>
+            <div class="phone">
+              <a class="phone-link" href="tel:1-833-221-5415">1-833-221-5415</a>
+            </div>
+          <p>8:30am - 6pm MF PST</p>
+        </div>
+      </div>
+    </div>
+    <!-- HEADER END -->
+    <!-- BLUE BOX SHOWCASE BEGIN   -->
+    <div id="showcase">
+      <h1>Welcome to the affordable coverage you deserve.</h1>
+      <p>
+        Discover all the ways you can bridge the gap in medical coverage. Now, at a low monthly cost.
+      </p>
+      <a class="btn btn-yellow" href="#form-holder" id="btn-discover">Start the conversation</a>
+    </div>
+    <div id="main">
+      <h2>Give yourself peace of mind for when the unexpected happens.</h2>
+      <p>Talk to us about three ways to protect you and your family.</p>
+    </div>
+    <!-- BLUE BOX SHOWCASE END -->
+    <!-- CARDS SECTION ONE BEGIN -->
+    <div class="cards-grid" id="card-holder">
+      <div class="card card-grid" id="card-1">
+        <div class="card-content">
+          <div class="icon">
+            <img alt="" src="https://s3.us-east-2.amazonaws.com/securecoveragetoday.com/imgs/icon-health-wellness.svg" />
+          </div>
+          <h4 class="card-title-blue">Critical Illness</h4>
+          <p style="padding: 0px 0px 25px 0px;">from LifeSecure Insurance Company</p>
+          <hr />
+          <p>
+            If you’re diagnosed with a serious disease, Critical Illness insurance can provide cash benefits to help prevent financial hardship from unexpected medical bills including experimental treatments and out-of-network expenses.
+          </p>
+        </div>
+        <a class="btn btn-card" href="#form-holder" id="btn-critical">Start the conversation</a>
+      </div>
+      <div class="card card-grid" id="card-2">
+        <div class="card-content">
+          <div class="icon">
+            <img
+              alt=""
+              src="https://s3.us-east-2.amazonaws.com/securecoveragetoday.com/imgs/icon-accident.svg"
+            />
+          </div>
+          <h4 class="card-title-blue">Personal Accident</h4>
+          <p style="padding: 0px 0px 25px 0px;">from LifeSecure Insurance Company</p>
+          <hr />
+          <p>
+            Help prevent a significant financial setback after an accidental injury with Personal Accident insurance. It may help safeguard against the financial impacts of unexpected bills with cash benefits.
+          </p>
+        </div>
+        <a class="btn btn-card" href="#form-holder" id="btn-personalaccident">Start the conversation</a>
+      </div>
+    </div>
+    <!-- CARDS SECTION ONE END -->
+    <!-- CARDS SECTION TWO BEGIN -->
+    <div class="row">
+      <div class="card-hos">
+        <div class="card-content" style="height: 410px;">
+          <div class="icon">
+            <img alt="" src="https://s3.us-east-2.amazonaws.com/securecoveragetoday.com/imgs/icon-indemity.svg" />
+          </div>
+          <h4 class="card-title-blue">Hospital Recovery</h4>
+          <p style="padding: 0px 0px 25px 0px;">from LifeSecure Insurance Company</p>
+          <hr style="width: 122.8px;">
+          <p>
+            Hospital stays can be expensive. Hospital Recovery insurance bridges the gap in coverage with cash benefits to help protect you financially after a hospital stay.
+          </p>
+        </div>
+        <a class="btn btn-card" href="#form-holder" id="btn-hospitalrecovery">Start the conversation</a>  
+      </div>
+    </div>
+    <!-- CARDS SECTION TWO END -->
+    <!-- FORM BEGIN -->
+    <div class="card-content" id="form-holder">
+      <h2 id="form-heading">
+        Start the conversation now: Find a supplemental health plan that's right for you.
+      </h2>
+      <form
+        class="form-grid"
+        id="contact-form"
+        method="post"
+        name="contact-form"
+      >
+        <div id="requiredField">
+          <p class="legal">*Required Field</p>
+        </div>
+        <div id="firstName">
+          <h6>First Name*</h6>
+          <input
+            class="form-control"
+            id="name-input"
+            placeholder="Enter first name here…"
+            style="height:35px;"
+            type="text"
+          />
+        </div>
+        <div id="lastName">
+          <h6>Last Name*</h6>
+          <input
+            class="form-control"
+            id="last-name-input"
+            placeholder="Enter last name here…"
+            style="height:35px;"
+            type="text"
+          />
+        </div>
+        <div id="phoneNumber">
+          <h6>Phone</h6>
+          <input
+            class="form-control"
+            id="phone-input"
+            placeholder="(_) __ - ____"
+            style="height:35px;"
+            type="phone"
+          />
+        </div>
+        <div id="emailAddress">
+          <h6>Email*</h6>
+          <input
+            class="form-control"
+            id="email-input"
+            placeholder="Enter email here…"
+            style="height:35px;"
+            type="email"
+          />
+        </div>
+        <div id="streetAddress">
+          <h6>Address*</h6>
+          <input
+            class="form-control"
+            id="address-1-input"
+            placeholder="Number, Street name"
+            style="height:35px;"
+            type="text"
+          />
+        </div>
+        <div id="city">
+          <h6>City*</h6>
+          <input
+            class="form-control"
+            id="city-input"
+            placeholder="City"
+            style="height:35px;"
+            type="text"
+          />
+        </div>
+        <div id="state">
+          <h6>State*</h6>
+          <select
+            class="form-control state-form-control"
+            form="contact-form"
+            id="state-select"
+            style="height:35px; width:50%;"
+          >
+            <option disabled selected value="">Select</option>
+            <option value="AL">AL</option>
+            <option value="AK">AK</option>
+            <option value="AZ">AZ</option>
+            <option value="AR">AR</option>
+            <option value="CA">CA</option>
+            <option value="CO">CO</option>
+            <option value="CT">CT</option>
+            <option value="DE">DE</option>
+            <option value="DC">DC</option>
+            <option value="FL">FL</option>
+            <option value="GA">GA</option>
+            <option value="HI">HI</option>
+            <option value="ID">ID</option>
+            <option value="IL">IL</option>
+            <option value="IN">IN</option>
+            <option value="IA">IA</option>
+            <option value="KS">KS</option>
+            <option value="KY">KY</option>
+            <option value="LA">LA</option>
+            <option value="ME">ME</option>
+            <option value="MD">MD</option>
+            <option value="MA">MA</option>
+            <option value="MI">MI</option>
+            <option value="MN">MN</option>
+            <option value="MS">MS</option>
+            <option value="MO">MO</option>
+            <option value="MT">MT</option>
+            <option value="NE">NE</option>
+            <option value="NV">NV</option>
+            <option value="NH">NH</option>
+            <option value="NJ">NJ</option>
+            <option value="NM">NM</option>
+            <option value="NY">NY</option>
+            <option value="NC">NC</option>
+            <option value="ND">ND</option>
+            <option value="OH">OH</option>
+            <option value="OK">OK</option>
+            <option value="OR">OR</option>
+            <option value="PA">PA</option>
+            <option value="RI">RI</option>
+            <option value="SC">SC</option>
+            <option value="SD">SD</option>
+            <option value="TN">TN</option>
+            <option value="TX">TX</option>
+            <option value="UT">UT</option>
+            <option value="VT">VT</option>
+            <option value="VA">VA</option>
+            <option value="WA">WA</option>
+            <option value="WV">WV</option>
+            <option value="WI">WI</option>
+            <option value="WY">WY</option>
+          </select>
+        </div>
+        <div id="zip">
+          <h6>ZIP code*</h6>
+          <input
+            class="form-control state-form-control"
+            id="zip-input"
+            placeholder="00000"
+            style="height:35px;"
+            type="text"
+          />
+        </div>
+        <div id="checkbox-holder">
+          <input id="c1" name="agreement" required="" type="checkbox" />
+          <span class="agree-terms"
+            >Yes, I have read and agree to the
+            <a href="#ca">Calling Agreement</a> below.<br
+          /></span>
+        </div>
+        <button
+          id="btn-submit"
+          type="button"
+          class="btn-form-submit "
+          onClick="submitToAPI(event)"
+          class="btn btn-lg"
+          style="margin-top:20px;"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+    <!-- FORM END -->
+    <!-- DISCLAIMER BEGIN -->
+    <div id="footer-legal">
+      <p>Product cost and availability will vary based on the consumer’s state and age. These products are not qualifying health coverage (Minimum Essential Coverage) that satisfies the health coverage requirement of the Affordable Care Act. The termination or loss of any of these policies does not entitle the client to a special enrollment period to purchase a health benefit plan that qualifies as minimum essential coverage outside of an open enrollment period. These products have exclusions, limitations and terms. Do not send money in response to this ad. You cannot obtain coverage without completing an application. For costs and details of the coverage, contact us at the “1-800” number provided above. The Critical Illness and Hospital Recovery products include a pre-existing condition exclusion provision.</p>
+      <p>Anthem Blue Cross does not underwrite, insure or administer the Accident, Critical Illness and Hospital Recovery insurance plans described on this webpage. LifeSecure Insurance Company underwrites and has sole financial responsibility for the Accident, Critical Illness and Hospital Recovery Insurance products. LifeSecure is an independent company that does not provide Anthem Blue Cross products or services.</p>
+      <p>The Accident, Critical Illness and Hospital Recovery insurance products are underwritten by <strong>LifeSecure Insurance Company – Brighton, MI</strong>. LifeSecure and the logo are trademarks of LifeSecure Insurance Company. This marketing email is for illustrative purposes only and is not a contract. It is intended only to provide a general overview of LifeSecure's products and services. Please remember only the insurance policy can give actual coverage amounts, terms and conditions. Refer also to the Outline of Coverage. This is an insurance solicitation.</p>
+      <p>Policy form series: LS-AC-0002; LS-CI-0001; LS-HR-0002; LS-HR-0004.</p>
+      <p id="ca">
+        <span class="bolded">CALLING AGREEMENT:</span> By clicking the “Yes, I have read and agree" check box above, you consent and request that Anthem, its affiliates, and those acting on their behalf, may call or text you using an automated telephone dialing system and/or a prerecorded message. The types of calls or text messages you may receive include advertisements or telemarketing messages concerning our benefits and services. Calls can be made to any number you provide above, even if listed on a national or state Do Not Call registry. You understand that consent is not a condition of purchase and you may also receive a quote by calling us at the number listed on this website. An agent may contact you.
+      </p>
+    </div>
+    <!-- DISCLAIMER END -->
+    <!-- FOOTER BEGIN -->
+    <footer>
+      <div id="logo-footer">
+        <div class="footer-grid">
+          <div id="logo-footer-holder-main">
+            <div class="logo-footer">
+              <a class="logo-footer-link" href="#" target="_blank"
+                ><img alt="" class="logo-footer-img" src=""
+              /></a>
+            </div>
+          </div>
+          <div id="logo-footer-holder-second">
+            <div class="logo-footer">
+              <a class="logo-footer-link" href="#" target="_blank"
+                ><img alt="" style="width: 291px" class="logo-footer-img" src=""
+              /></a>
+            </div>
+          </div>
+          <div id="phone-holder-footer">
+            <p class="small-footer-copy">Call to start a conversation today:</p>
+            <span class="phone-footer"
+              ><a class="phone-link-footer" href="tel:1-833-221-5415"
+                >1-833-221-5415</a
+              ></span
+            >
+            <p>8:30am - 6pm MF PST</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- FOOTER END -->
+    <!--Import jQuery before materialize.js-->
+    <script
+      src="https://code.jquery.com/jquery-2.1.1.min.js"
+      type="text/javascript"
+    ></script>
+    <!-- <script type="text/javascript" src="js/materialize.min.js"></script> -->
+    <script src="../js/main.js"></script>
+    <script>
+      var locationVar = getQueryVariable(locationURL);
+      var mediumVar = getQueryMedium(locationURL);
+      // console.log(mediumVar);
+    </script>
+  </body>
+</html>
