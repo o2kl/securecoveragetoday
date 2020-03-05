@@ -125,6 +125,15 @@ h1 {
           box-shadow: none;
 }
 
+ .btn-orange{
+  border: solid 2px #ec7700;
+  color:#ec7700;
+  background:none;
+  height:auto;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .btn-card{
   /* display:inline-block; */
   border: solid 2px #ec7700;
@@ -139,7 +148,7 @@ h1 {
 .btn-form-submit {
   border: solid 2px #ec7700;
   color:#fff;
-  background:#a5346f;
+  background:#ec7700;
   height:auto;
   padding:0.4rem 2rem;
   -webkit-box-shadow: none;
