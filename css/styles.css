@@ -127,8 +127,8 @@ h1 {
 
 .btn-card{
   /* display:inline-block; */
-  border: solid 2px #7c1848;
-  color:#7c1848;
+  border: solid 2px #ec7700;
+  color:#ec7700;
   margin:1.5rem 1rem 3rem 1rem;
   background:none;
   height:auto;
@@ -137,7 +137,7 @@ h1 {
 }
 
 .btn-form-submit {
-  border: solid 2px #7c1848;
+  border: solid 2px #ec7700;
   color:#fff;
   background:#a5346f;
   height:auto;
